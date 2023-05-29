@@ -3,7 +3,7 @@ const router = express.Router();
 const { validateBody, ctrlWrapper } = require("../../utils");
 const { contacts: ctrl } = require("../../controllers");
 
-const { joiSchema } = require("../../models/contsct");
+const { joiSchema } = require("../../models/contact");
 
 router.get("/", ctrlWrapper(ctrl.getListContact));
 

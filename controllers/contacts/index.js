@@ -2,8 +2,7 @@ const getListContact = require("./getListContact");
 const getContact = require("./getContact");
 const addContacts = require("./addContacts");
 const removeContact = require("./removeContact");
-const updateContact = require("./updateContact");
-const updateStatus = require("./updateStatus");
+const { updateContact, updateStatus } = require("./updateContact");
 
 module.exports = {
   getListContact,

@@ -1,7 +1,7 @@
-const { Contact } = require("../../models/contsct");
+const { Contact } = require("../../models/contact");
 
-const addContscts = async (req, res, next) => {
+const addContacts = async (req, res, next) => {
   const resault = await Contact.listContacts();
   res.json(resault);
 };
-module.exports = addContscts;
+module.exports = addContacts;

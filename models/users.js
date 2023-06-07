@@ -22,14 +22,27 @@ const userSchema = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-const joiSchema = Joi.object({
-  name: Joi.string().messages({ "string.pattern.base": `Not valid name` }),
-  email: Joi.string().messages({ "string.pattern.base": `Not valid email` }),
-  subscription: Joi.string(),
+const registJoiSchema = Joi.object({
+  name: Joi.string().required(),
+  password: Joi.string().required(),
+  email: Joi.string().required(),
 });
+
+const loginJoiSchema = Joi.object({
+  name: Joi.string().required(),
+  password: Joi.string().required(),
+
+});
+
+
+const schemas = {
+  registJoiSchema,
+  loginJoiSchema
+};
+
 const User = model("user", userSchema);
 
 module.export = {
   User,
-  joiSchema,
+  schemas,
 };

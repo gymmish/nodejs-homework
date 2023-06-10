@@ -1,11 +1,24 @@
 const {User} = require("../../models/users");
-const { validateBody, ctrlWrapper } = require("../../utils");
+const {  ctrlWrapper } = require("../../utils");
 
 const register = ctrlWrapper(async (req, res) => {
-   const result = await User.create(req.body);
+   const {email} = req.body;
+   const user = await User.findOne({email})
+if(user) {
+   const error = new Error(`Email in use`);
+   error.status = 409;
+   throw error;
+ 
+}
 
-   res.json({
+    const result = await User.create(req.body);
+   res.status(201).json({
     mail: result.email,
     subscription: "starter"
    })
   });
+
+
+  module.exports ={
+   register,
+}

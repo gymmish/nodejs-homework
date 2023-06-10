@@ -1,13 +1,12 @@
-// const express = require("express");
-// const router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-// const { validateBody, ctrlWrapper } = require("../../utils");
+const { validateBody } = require("../../utils");
+const {registJoiSchema} = require("../../models/users");
+const ctrl = require("../../controllers/auth.js/register")
 
-// const {schemas} = require("../../models/users");
+router.post("/register", validateBody(registJoiSchema), ctrl.register );
 
-// router.post("/register", validateBody(schemas
-//     ));
-
-// module.express = router;
+module.exports = router;
 
 

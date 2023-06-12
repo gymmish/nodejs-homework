@@ -17,6 +17,11 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+      required: true,
+    }
   },
   { versionKey: false, timestamps: true }
 );
@@ -28,9 +33,10 @@ const joiSchema = Joi.object({
     .regex(/^[0-9]{10}$/)
     .messages({ "string.pattern.base": `Phone number must have 10 digits.` }),
 });
+
 const Contact = model("contact", contactSchema);
 
-module.export = {
+module.exports = {
   Contact,
   joiSchema,
 };

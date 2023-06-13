@@ -112,6 +112,6 @@ const updateAvatar = ctrlWrapper(async (req, res) => {
    register,
    login,
    logout,
-     getCurrent,
+   getCurrent,
    updateAvatar,
 }
